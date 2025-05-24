@@ -4,13 +4,13 @@
 	import { fade, fly, scale, slide } from 'svelte/transition';
 
 	interface Props {
-		openOn: boolean;
+		openWhen: boolean;
 		onCancel?: () => void;
 		children?: Snippet;
 		title?: Snippet;
 	}
 
-	let { openOn = false, onCancel, children, title, ...restProps }: Props = $props();
+	let { openWhen = false, onCancel, children, title, ...restProps }: Props = $props();
 
 	const overlayCoreClass = `z-[999] fixed inset-0`;
 	const contentCoreClass =
@@ -48,7 +48,7 @@
 	// $effect(() => {
 	// 	// since onCloseAutoFocus is not called when closing via open change
 	// 	// we handle it here using tick or setTimeout
-	// 	if (!openOn) {
+	// 	if (!openWhen) {
 	// 		let element = focusedElementWhenOpened;
 	// 		console.log(`closed`, element);
 	// 		if (element) {
@@ -62,7 +62,7 @@
 </script>
 
 <Dialog.Root
-	open={openOn}
+	open={openWhen}
 	onOpenChange={(open) => {
 		console.log('onOpenChange', open);
 		if (!open) {

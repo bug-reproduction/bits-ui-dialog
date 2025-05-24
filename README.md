@@ -27,7 +27,7 @@ if you add the following in [src/lib/components/Modal.svelte](./src/lib/componen
 $effect(() => {
 	// since onCloseAutoFocus is not called when closing via open change
 	// we handle it here using tick or setTimeout
-	if (!openOn) {
+	if (!openWhen) {
 		let element = focusedElementWhenOpened;
 		console.log(`closed`, element);
 		if (element) {

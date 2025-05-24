@@ -8,9 +8,9 @@
 
 <Button onclick={() => modal.open()}>Click me</Button>
 
-<Modal onCancel={() => modal.close()} openOn={$modal.open}>
+<Modal openWhen={$modal.open} onCancel={() => modal.close()}>
 	{#snippet title()}
-		'Modal'
+		Modal
 	{/snippet}
 	<Button onclick={() => modal.close()}>close</Button>
 	<Button onclick={() => modal.close()}>close</Button>
